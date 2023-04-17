@@ -11,12 +11,3 @@ const db = new Sequelize(
 )
 
 export default db
-
-// Mysql
-/*
-{
-    host: 'localhost',
-    port: 3306,
-    dialect: 'mysql'
-}
-*/
