@@ -11,11 +11,11 @@ const Funcionario = db.define("funcionario",{
         type: Sequelize.STRING,
         allowNull: false
     },
-    name: {
+    nome: {
         type: Sequelize.STRING,
         allowNull: false
     },
-    endereço: {
+    endereco: {
         type: Sequelize.STRING,
         allowNull: false        
     },
@@ -33,4 +33,4 @@ const Funcionario = db.define("funcionario",{
     }
 })
 
-export default {Funcionario}
+export default Funcionario

@@ -11,11 +11,11 @@ const Clientes = db.define("cliente",{
         type: Sequelize.STRING,
         allowNull: false
     },
-    name: {
+    nome: {
         type: Sequelize.STRING,
         allowNull: false
     },
-    endereço: {
+    endereco: {
         type: Sequelize.STRING,
         allowNull: false        
     },
@@ -30,4 +30,4 @@ const Clientes = db.define("cliente",{
 
 })
 
-export default {Clientes}
+export default Clientes
