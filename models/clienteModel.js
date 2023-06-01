@@ -32,7 +32,7 @@ const Clientes = db.define("cliente",{
         allowNull: false
     },
     senha: {
-        type: Sequelize.PASSWORD,
+        type: Sequelize.BLOB,
         allowNull: false
     }  
 
