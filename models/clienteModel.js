@@ -26,7 +26,15 @@ const Clientes = db.define("cliente",{
     mensalidade: {
         type: Sequelize.FLOAT,
         allowNull: false
-    }
+    },
+    usuario: {
+        type: Sequelize.STRING,
+        allowNull: true
+    },
+    senha: {
+        type: Sequelize.STRING,
+        allowNull: true
+    }  
 
 })
 
