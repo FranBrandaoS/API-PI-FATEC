@@ -29,11 +29,11 @@ const Clientes = db.define("cliente",{
     },
     usuario: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: true
     },
     senha: {
         type: Sequelize.BLOB,
-        allowNull: false
+        allowNull: true
     }  
 
 })
