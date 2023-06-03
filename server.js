@@ -2,6 +2,7 @@ import express from 'express'
 import db from './db.js'
 import funcionariosRoutes from './routes/funcionariosRoutes.js'
 import clientesRoutes from './routes/clienteRoutes.js'
+import aulasRoutes from './routes/aulasRoutes.js'
 import cors from 'cors'
 
 const app = express()
@@ -13,4 +14,5 @@ app.use(cors())
 db.sync(() => console.log('Banco de dados preparado'))
 app.use('/funcionarios', funcionariosRoutes)
 app.use('/clientes', clientesRoutes)
+app.use('/aulas', aulasRoutes)
 app.listen(port, () => console.log("Server rodando na porta "+port))
