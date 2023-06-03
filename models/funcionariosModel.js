@@ -30,6 +30,14 @@ const Funcionario = db.define("funcionario",{
     cargo: {
         type: Sequelize.STRING,
         allowNull: false
+    },
+    usuario: {
+        type: Sequelize.STRING,
+        allowNull: true
+    },
+    senha: {
+        type: Sequelize.BLOB,
+        allowNull: true
     }
 })
 
