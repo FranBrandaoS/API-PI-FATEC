@@ -1,4 +1,4 @@
-import Participantes from '../models/participantesAulasModel'
+import Participantes from '../models/participantesAulasModel.js'
 
 
 async function getAllParticipantes(req,res){

@@ -1,8 +1,7 @@
 import { Sequelize } from "sequelize"
 import db from "../db.js"
-
-const A = require('./Aulas')
-const C = require('./Clientes')
+import A from "./aulasModel.js"
+import C from "./clienteModel.js"
 
 const Participantes = db.define("participante",{
     id: {
