@@ -14,11 +14,11 @@ const Participantes = db.define("participante",{
         allowNull: false        
     },
     IdAula: {
-        type: Sequelize.STRING,
+        type: Sequelize.INTEGER,
         allowNull: false
     },
     IdCliente: {
-        type: Sequelize.STRING,
+        type: Sequelize.INTEGER,
         allowNull: false
     }
 })
