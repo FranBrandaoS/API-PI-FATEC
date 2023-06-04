@@ -16,7 +16,11 @@ const Aulas = db.define("aula",{
         allowNull: false
     },
     data: {
-        type: Sequelize.DATE,
+        type: Sequelize.STRING,
+        allowNull: false        
+    },
+    hora: {
+        type: Sequelize.TIME,
         allowNull: false        
     },
     limiteAlunos: {
