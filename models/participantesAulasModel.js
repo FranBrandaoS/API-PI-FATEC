@@ -1,7 +1,7 @@
 import { Sequelize } from "sequelize"
 import db from "../db.js"
-//import A from "./aulasModel.js"
-//import C from "./clienteModel.js"
+import A from "./aulasModel.js"
+import C from "./clienteModel.js"
 
 const Participantes = db.define("participante",{
     id: {
@@ -19,7 +19,7 @@ const Participantes = db.define("participante",{
     }
 })
 
-//Participantes.belongsTo(A, {foreignKey: 'IdAula', allowNull: false})
-//Participantes.belongsTo(C, {foreignKey: 'IdCliente', allowNull: false})
+Participantes.belongsTo(A, {foreignKey: 'IdAula', allowNull: false})
+Participantes.belongsTo(C, {foreignKey: 'IdCliente', allowNull: false})
 
 export default Participantes
