@@ -9,10 +9,6 @@ const Participantes = db.define("participante",{
         autoIncrement: true,
         primaryKey: true
     },
-    nomeAula_Participantes: {
-        type: Sequelize.STRING,
-        allowNull: false        
-    },
     IdAula: {
         type: Sequelize.INTEGER,
         allowNull: false
