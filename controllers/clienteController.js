@@ -1,4 +1,5 @@
 import Clientes from '../models/clienteModel.js'
+import bcrypt from 'bcrypt'
 
 
 async function getAllCliente(req,res){
@@ -7,7 +8,18 @@ async function getAllCliente(req,res){
 }
 
 async function createCliente(req,res){
-    const cliente = await Clientes.create(req.body)
+    const { cpf, nome, endereco, telefone, mensalidade, usuario, senha } = req.body
+
+    const cli = new Clientes()
+    cli.cpf = cpf
+    cli.nome = nome
+    cli.endereco = endereco
+    cli.telefone = telefone
+    cli.mensalidade - mensalidade
+    cli.usuario = usuario
+    cli.senha = bcrypt.hashSync(senha, 10)
+
+    const cliente = await Clientes.create(cli)
     res.json(cliente)
 }
 
@@ -32,4 +44,15 @@ async function getClienteById(req,res){
     res.json(cliente)
 }
 
-export default {getAllCliente, createCliente, deleteCliente, updateCliente, getClienteById}
+async function loginCliente(req,res){
+    const cliente = await Clientes.findOne(req.params.usuario)
+
+    if(!cliente) return res.json({ error: 'Usuário não encontrado!'})
+
+    const passwordCheck = bcrypt.compareSync(req.params.senha, cliente.senha)
+    if(!passwordCheck) return res.json({ error: 'Senha inválida!'})
+
+    res.json(cliente)
+}
+
+export default {getAllCliente, createCliente, deleteCliente, updateCliente, getClienteById, loginCliente}
