@@ -15,7 +15,7 @@ async function createCliente(req,res){
     cli.nome = nome
     cli.endereco = endereco
     cli.telefone = telefone
-    cli.mensalidade - mensalidade
+    cli.mensalidade = mensalidade
     cli.usuario = usuario
     cli.senha = bcrypt.hashSync(senha, 10)
 
