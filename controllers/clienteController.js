@@ -8,7 +8,19 @@ async function getAllCliente(req,res){
 }
 
 async function createCliente(req,res){
-    const cliente = await Clientes.create(req.body)
+    const { cpf, nome, endereco, telefone, mensalidade, usuario, senha } = req.body
+
+    const cli = new Clientes()
+    cli.cpf = cpf
+    cli.nome = nome
+    cli.endereco = endereco
+    cli.telefone = telefone
+    cli.mensalidade - mensalidade
+    cli.usuario = usuario
+    cli.senha = bcrypt.hashSync(senha, 10)
+
+    const cliente = await Clientes.create(req.json(cli))
+    
     res.json(cliente)
 }
 
