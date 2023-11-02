@@ -19,7 +19,7 @@ async function createCliente(req,res){
     cli.usuario = usuario
     cli.senha = bcrypt.hashSync(senha, 10)
 
-    const cliente = await Clientes.create(req.json(cli))
+    const cliente = await Clientes.create(cli)
     
     res.json(cliente)
 }
