@@ -17,11 +17,16 @@ async function createCliente(req,res){
     cli.telefone = telefone
     cli.mensalidade = mensalidade
     cli.usuario = usuario
-    cli.senha = senha
+    cli.senha = bcrypt.hashSync(senha, 10)
 
     const cliente = await Clientes.create(cli)
     
-    res.json(cliente)
+    if(cliente){
+        res.json({cliente})
+    }
+    else{
+        res.status(500).json({ error: 'Erro desconhecido!'})
+    }
 }
 
 async function deleteCliente(req,res){
