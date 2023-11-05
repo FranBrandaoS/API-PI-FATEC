@@ -17,7 +17,7 @@ async function createCliente(req,res){
     cli.telefone = telefone
     cli.mensalidade = mensalidade
     cli.usuario = usuario
-    cli.senha = bcrypt.hashSync(senha, 10)
+    cli.senha = senha
 
     const cliente = await Clientes.create(cli)
     
