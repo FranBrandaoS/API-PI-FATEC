@@ -1,5 +1,6 @@
 import { Sequelize } from "sequelize"
 import db from "../db.js"
+import Tokens from "./tokenModel.js"
 
 const Clientes = db.define("cliente",{
     id: {
@@ -36,5 +37,7 @@ const Clientes = db.define("cliente",{
         allowNull: true
     }  
 })
+
+Clientes.hasMany(Tokens)
 
 export default Clientes
