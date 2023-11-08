@@ -1,4 +1,4 @@
-import Clientes from '../models/clienteModel.js'
+import {Clientes} from '../models/index.js'
 import bcrypt from 'bcrypt'
 
 
@@ -18,11 +18,10 @@ async function createCliente(req,res){
     cli.mensalidade = mensalidade
     cli.usuario = usuario
     cli.senha = bcrypt.hashSync(senha, 10)
+    await cli.save()
 
-    const cliente = await Clientes.create(cli)
-    
-    if(cliente){
-        res.json({cliente})
+    if(cli){
+        res.json(cli)
     }
     else{
         res.status(500).json({ error: 'Erro desconhecido!'})

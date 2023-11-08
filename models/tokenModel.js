@@ -1,6 +1,6 @@
 import { Sequelize } from "sequelize";
-import db from "../db";
-import Clientes from "./clienteModel";
+import db from "../db.js";
+import Clientes from "./clienteModel.js";
 
 const Tokens = db.define("token", {
     id: {
@@ -26,6 +26,6 @@ const Tokens = db.define("token", {
     }
 })
 
-Tokens.belongsTo(Clientes, { foreignKey: 'userId' })
+
 
 export default Tokens

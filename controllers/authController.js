@@ -1,5 +1,4 @@
-import Clientes from "../models/clienteModel";
-import Tokens from "../models/tokenModel";
+import {Clientes, Tokens} from "../models/index.js";
 import bcrypt from 'bcrypt'
 
 async function Login(req, res){

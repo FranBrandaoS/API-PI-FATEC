@@ -38,6 +38,6 @@ const Clientes = db.define("cliente",{
     }  
 })
 
-Clientes.hasMany(Tokens)
+
 
 export default Clientes
