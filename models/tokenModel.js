@@ -26,6 +26,6 @@ const Tokens = db.define("token", {
     }
 })
 
-Tokens.belongsTo(Clientes)
+Tokens.belongsTo(Clientes, { foreignKey: 'userId' })
 
 export default Tokens
