@@ -2,7 +2,7 @@ import {Clientes, Tokens} from "../models/index.js";
 import bcrypt from 'bcrypt'
 
 async function Login(req, res){
-    const { usuario, senha } = req.body
+    const { email, password } = req.body
 
     const user = await Clientes.findOne({where: { usuario }})
     if (user === null) return res.json({error: 'Usuário não encontrado!'})
