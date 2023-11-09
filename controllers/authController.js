@@ -5,24 +5,24 @@ async function Login(req, res){
     const { usuario, senha } = req.body
 
     const user = await Clientes.findOne({where: { usuario }})
-    if (!user) return res.json({error: 'Usuário não encontrado!'})
+    if (user === null) return res.json({error: 'Usuário não encontrado!'})
 
     const senhaMatch = bcrypt.compareSync(senha, user.senha)
     if (!senhaMatch) return res.json({ error: 'Senha não confere!'})
 
-    await Tokens.destroy({
-        user: { id: user.id }
-    })
+    await Tokens.destroy(
+        {where: {userId: user.id}}
+    )
 
     const token = new Tokens()
     token.token = bcrypt.hashSync(Math.random().toString(36), 1).slice(-20)
     token.expiresAt = new Date(Date.now() + 120 * 60 * 1000)
     token.refreshToken = bcrypt.hashSync(Math.random().toString(36), 1).slice(-20)
     token.user = user
-    
-    const tokenFinal = await Tokens.create(token)
+    token.save()
+    //const tokenFinal = await Tokens.create(token)
 
-    res.json(tokenFinal)
+    res.json(token)
 }
 
 async function Refresh(req, res){
