@@ -4,7 +4,7 @@ import funcionariosRoutes from './routes/funcionariosRoutes.js'
 import clientesRoutes from './routes/clienteRoutes.js'
 import aulasRoutes from './routes/aulasRoutes.js'
 import participantesAulasRoutes from './routes/participantesAulasRoutes.js'
-import authRoutes from './routes/authRoutes'
+import authRoutes from './routes/authRoutes.js'
 import cors from 'cors'
 
 
