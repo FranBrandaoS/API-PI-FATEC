@@ -4,7 +4,7 @@ import bcrypt from 'bcrypt'
 async function Login(req, res){
     const { usuario, senha } = req.body
 
-    const user = await Clientes.findOne({usuario})
+    const user = await Clientes.findOne({where: { usuario }})
     if (!user) return res.json({error: 'Usuário não encontrado!'})
 
     const senhaMatch = bcrypt.compareSync(senha, user.senha)
