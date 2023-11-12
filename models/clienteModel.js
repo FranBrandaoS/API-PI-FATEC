@@ -16,6 +16,18 @@ const Clientes = db.define("cliente",{
         type: Sequelize.STRING,
         allowNull: false
     },
+    nascimento: {
+        type: Sequelize.DATEONLY,
+        allowNull: false
+    },
+    peso: {
+        type: Sequelize.FLOAT,
+        allowNull: false
+    },
+    altura: {
+        type: Sequelize.FLOAT,
+        allowNull: false
+    },
     endereco: {
         type: Sequelize.STRING,
         allowNull: false        

@@ -26,6 +26,4 @@ const Tokens = db.define("token", {
     }
 })
 
-
-
 export default Tokens

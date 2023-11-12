@@ -8,12 +8,15 @@ async function getAllCliente(req,res){
 }
 
 async function createCliente(req,res){
-    const { cpf, nome, endereco, telefone, mensalidade, usuario, senha } = req.body
+    const { cpf, nome, endereco, nascimento, peso, altura, telefone, mensalidade, usuario, senha } = req.body
 
     const cli = new Clientes()
     cli.cpf = cpf
     cli.nome = nome
     cli.endereco = endereco
+    cli.nascimento = nascimento
+    cli.peso = peso
+    cli.altura = altura
     cli.telefone = telefone
     cli.mensalidade = mensalidade
     cli.usuario = usuario
