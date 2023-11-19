@@ -15,6 +15,10 @@ const Aulas = db.define("aula",{
         type: Sequelize.STRING,
         allowNull: false
     },
+    preco: {
+        type: Sequelize.FLOAT,
+        allowNull: false
+    },
     data: {
         type: Sequelize.STRING,
         allowNull: false        
@@ -25,7 +29,7 @@ const Aulas = db.define("aula",{
     },
     limiteAlunos: {
         type: Sequelize.INTEGER,
-        allowNull: false        
+        allowNull: true       
     }
 })
 
