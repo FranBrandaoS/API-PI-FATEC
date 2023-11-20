@@ -1,6 +1,5 @@
 import { Sequelize } from "sequelize";
 import db from "../db.js";
-import Clientes from "./clienteModel.js";
 
 const Tokens = db.define("token", {
     id: {
@@ -21,8 +20,7 @@ const Tokens = db.define("token", {
         allowNull: true
     },
     userId: {
-        type: Sequelize.INTEGER,
-        allowNull: false
+        type: Sequelize.INTEGER
     }
 })
 

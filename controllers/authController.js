@@ -18,7 +18,7 @@ async function Login(req, res){
     token.token = bcrypt.hashSync(Math.random().toString(36), 1).slice(-20)
     token.expiresAt = new Date(Date.now() + 120 * 60 * 1000)
     token.refreshToken = bcrypt.hashSync(Math.random().toString(36), 1).slice(-20)
-    token.user = user
+    token.userId = user.id
     token.save()
     //const tokenFinal = await Tokens.create(token)
 
