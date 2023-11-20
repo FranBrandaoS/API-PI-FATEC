@@ -26,7 +26,7 @@ async function Login(req, res){
 }
 
 async function Refresh(req, res){
-    const { authorization } = req.headers
+    const { authorization } = req.body
 
     if (!authorization) return res.json({ erro: 'O refresh token é obrigatório'})
 
