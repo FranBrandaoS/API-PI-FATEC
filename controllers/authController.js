@@ -26,9 +26,11 @@ async function Login(req, res){
 }
 
 async function Refresh(req, res){
-    const { authorization } = req.body
+    const { authorization } = req.headers
 
-    const token = await Tokens.findOne({where: { authorization }})
+    if (!authorization) return res.json({ erro: 'O refresh token é obrigatório'})
+
+    const token = await Tokens.findOne({where: {authorization}})
     if (!token) return res.json({ error: 'Refresh token inválido!'})
 
     if (token.expiresAt < new Date()){
