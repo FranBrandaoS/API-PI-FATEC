@@ -30,7 +30,7 @@ async function Refresh(req, res){
 
     if (!authorization) return res.json({ erro: 'O refresh token é obrigatório'})
 
-    const token = await Tokens.findOne({refreshToken: authorization})
+    const token = await Tokens.findOne({where: {authorization}})
     if (!token) return res.json({ error: 'Refresh token inválido!'})
 
     if (token.expiresAt < new Date()){
